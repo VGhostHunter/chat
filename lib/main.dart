@@ -1,5 +1,5 @@
-import 'package:chat/screens/home_screen.dart';
-import 'package:chat/utils/colors_util.dart';
+import 'package:chat/constants.dart';
+import 'package:chat/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -11,14 +11,14 @@ class MyApp extends StatelessWidget {
       title: 'Chat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFF4A4A58),
-        accentColor: ColorsUtil.hexColor(0x425066),
-        //按钮按下去的背景
-        highlightColor: Color.fromRGBO(65, 65, 77, 0.5),
-        //水波纹的颜色
-        splashColor: ColorsUtil.hexColor(0xc2ccd0)
+//        primaryColor: kPrimaryColor,
+//        accentColor: kAccentColor,
+//        //按钮按下去的背景
+//        highlightColor: kHighlightColor,
+//        //水波纹的颜色
+//        splashColor: kSplashColor
       ),
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }

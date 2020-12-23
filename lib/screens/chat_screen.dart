@@ -1,3 +1,4 @@
+import 'package:chat/constants.dart';
 import 'package:chat/models/message_model.dart';
 import 'package:chat/models/user_model.dart';
 import 'package:chat/utils/colors_util.dart';
@@ -20,7 +21,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final Widget msg = Container(
       width: MediaQuery.of(context).size.width * 0.68,
       decoration: BoxDecoration(
-        color: isMe ? ColorsUtil.hexColor(0xc2ccd0) : ColorsUtil.hexColor(0xe9e7ef),
+        color: isMe ? Colors.green : backGroundColor,
         borderRadius: BorderRadius.circular(15.0)
       ),
       child: Padding(
@@ -31,16 +32,16 @@ class _ChatScreenState extends State<ChatScreen> {
             Text(
               message.time,
               style: TextStyle(
-                color: Colors.black87,
-                fontSize: 15.0,
-                fontWeight: FontWeight.w300
+                color: isMe ? Colors.black: Colors.white70,
+                fontSize: 12.0,
+                fontWeight: FontWeight.w500
               ),
             ),
             SizedBox(height: 8.0,),
             Text(
               message.text,
               style: TextStyle(
-                color: Colors.black,
+                color: isMe ? Colors.black : Colors.white70,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w400
               ),
@@ -59,10 +60,16 @@ class _ChatScreenState extends State<ChatScreen> {
           children: <Widget>[
             msg,
             SizedBox(width: 10.0,),
-            CircleAvatar(
-              radius: 25.0,
-              backgroundImage: AssetImage(currentUser.imageUrl),
-            ),
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5.0),
+                image: DecorationImage(
+                  image: AssetImage(currentUser.imageUrl)
+                ),
+              ),
+            )
           ],
         ),
       );
@@ -73,9 +80,15 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            CircleAvatar(
-              radius: 25.0,
-              backgroundImage: AssetImage(message.sender.imageUrl),
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5.0),
+                image: DecorationImage(
+                    image: AssetImage(message.sender.imageUrl)
+                ),
+              ),
             ),
             SizedBox(width: 10.0,),
             msg,
@@ -87,41 +100,61 @@ class _ChatScreenState extends State<ChatScreen> {
 
   _buildMessageComposer() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.0),
-      height: 60.0,
-      color: ColorsUtil.hexColor(0xbacac6),
+      padding: EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 25.0),
+      height: 80.0,
+      color: backGroundColor2,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           IconButton(
-            color: Colors.black,
+            color: Colors.white,
             iconSize: 23.0,
             icon: Icon(Icons.mic),
             onPressed: () {},
           ),
           Expanded(
-            child: TextField(
-              textCapitalization: TextCapitalization.sentences,
-              onChanged: (value) {
-                setState(() {
-                });
-              },
-              decoration: InputDecoration.collapsed(
-                hintText: '          send a message...',
+            child: Container(
+              height: 33,
+
+              decoration: BoxDecoration(
+                color: backGroundColor,
+                borderRadius: BorderRadius.circular(5.0)
               ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: TextField(
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17.0
+                      ),
+                      textCapitalization: TextCapitalization.sentences,
+                      onChanged: (value) {
+                        setState(() {
+                        });
+                      },
+                      decoration: InputDecoration.collapsed(
+//                      hintText: '   send a message...',
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ),
           ),
           Row(
             children: <Widget>[
               IconButton(
-                color: Colors.black,
+                color: Colors.white,
                 iconSize: 23.0,
                 icon: Icon(Icons.face),
                 onPressed: () {},
               ),
               IconButton(
-                color: Colors.black,
+                color: Colors.white,
                 iconSize: 25.0,
                 icon: Icon(Icons.add),
                 onPressed: () {},
@@ -136,23 +169,16 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: backGroundColor2,
       appBar: AppBar(
+        backgroundColor: backGroundColor2,
         leading: GestureDetector(
           onTap: () => Navigator.pop(context),
-          child: CircleAvatar(
-            backgroundColor: Theme.of(context).primaryColor,
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 12.0,
-              child: Text(
-                '6',
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor
-                ),
-              ),
-            ),
-          )
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: ColorsUtil.hexColor(0xbacac6),
+            size: 22.0,
+          ),
         ),
         title: Text(
           widget.user.name,
@@ -178,10 +204,10 @@ class _ChatScreenState extends State<ChatScreen> {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: ColorsUtil.hexColor(0xf2fdff),
+                  color: backGroundColor,
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(35.0),
-                    topLeft: Radius.circular(35.0),
+//                    topRight: Radius.circular(35.0),
+//                    topLeft: Radius.circular(35.0),
                   ),
                 ),
                 child: ClipRRect(

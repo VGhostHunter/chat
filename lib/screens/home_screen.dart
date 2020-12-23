@@ -1,3 +1,4 @@
+import 'package:chat/constants.dart';
 import 'package:chat/models/message_model.dart';
 import 'package:chat/utils/colors_util.dart';
 import 'package:chat/widgets/category_selector.dart';
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: backGroundColor,
       body: Stack(
         children: <Widget>[
           menuWidget(context),
@@ -67,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           elevation: 8.0,
           animationDuration: duration,
           borderRadius: BorderRadius.all(Radius.circular(40.0)),
-          color: Theme.of(context).primaryColor,
+          color: backGroundColor2,
           child: Column(
             children: <Widget>[
               Padding(
@@ -107,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).accentColor,
+                    color: backGroundColor2,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(45.0),
                       topRight: Radius.circular(45.0),
@@ -160,18 +161,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       ),
                     ),
                     currentAccountPicture: CircleAvatar(
+                      backgroundColor: backGroundColor,
                       backgroundImage: AssetImage(currentUser.imageUrl),
                     ),
-//                  decoration: BoxDecoration(
-//                    image: DecorationImage(
-//                      image: AssetImage(currentUser.imageUrl),
-//                      fit: BoxFit.cover,
-//                      colorFilter: ColorFilter.mode(
-//                        Theme.of(context).primaryColor,
-//                        BlendMode.hardLight
-//                      ),
-//                    ),
-//                  ),
+                    decoration: BoxDecoration(
+  //                    image: DecorationImage(
+  //                      image: AssetImage(currentUser.imageUrl),
+  //                      fit: BoxFit.cover,
+  //                      colorFilter: ColorFilter.mode(
+  //                        Theme.of(context).primaryColor,
+  //                        BlendMode.hardLight
+  //                      ),
+  //                    ),
+                    ),
                   ),
                 ),
                 SizedBox(height: 35,),

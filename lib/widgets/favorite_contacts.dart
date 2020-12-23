@@ -1,5 +1,6 @@
 import 'package:chat/models/message_model.dart';
 import 'package:chat/screens/chat_screen.dart';
+import 'package:chat/utils/colors_util.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteContacts extends StatelessWidget {
@@ -17,8 +18,8 @@ class FavoriteContacts extends StatelessWidget {
                 Text(
                   'Favorite contacts',
                   style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 18.0,
+                    color: ColorsUtil.hexColor(0xbacac6),
+                    fontSize: 15.0,
                     letterSpacing: 0.7,
                     fontWeight: FontWeight.bold
                   ),
@@ -26,8 +27,8 @@ class FavoriteContacts extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.more_horiz),
-                  color: Colors.black54,
-                  iconSize: 30.0,
+                  color: ColorsUtil.hexColor(0xbacac6),
+                  iconSize: 24.0,
                 ),
               ],
             ),
@@ -55,8 +56,8 @@ class FavoriteContacts extends StatelessWidget {
                         Text(
                           favorites[index].name,
                           style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 15.0,
+                            color: ColorsUtil.hexColor(0xbacac6),
+                            fontSize: 13.0,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
