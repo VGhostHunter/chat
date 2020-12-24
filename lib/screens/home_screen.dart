@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           elevation: 8.0,
           animationDuration: duration,
           borderRadius: BorderRadius.all(Radius.circular(40.0)),
-          color: backGroundColor2,
+          color: backGroundColor,
           child: Column(
             children: <Widget>[
               Padding(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 class SignInButton extends StatelessWidget {
   final Gradient gradient;
   final double width;
@@ -22,13 +24,14 @@ class SignInButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(25.0),
         child: FlatButton(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          color: Colors.black38,
+          color: backGroundColor4,
           onPressed: onPressed,
           child: Text(
             "Sign In",
             style: TextStyle(
               fontSize: 16.0,
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
+              color: Colors.white70
             ),
           ),
         ),

@@ -1,3 +1,4 @@
+import 'package:chat/constants.dart';
 import 'package:flutter/material.dart';
 
 class SignBackGround extends StatelessWidget {
@@ -15,8 +16,8 @@ class SignBackGround extends StatelessWidget {
                 1.0
               ],
               colors: [
-                Colors.black26,
-                Colors.black87,
+                backGroundColor,
+                backGroundColor4,
               ]
           )
         ),

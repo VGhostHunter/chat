@@ -21,7 +21,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final Widget msg = Container(
       width: MediaQuery.of(context).size.width * 0.68,
       decoration: BoxDecoration(
-        color: isMe ? Colors.green : backGroundColor,
+        color: isMe ? Colors.green : backGroundColor4,
         borderRadius: BorderRadius.circular(15.0)
       ),
       child: Padding(
@@ -102,7 +102,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Container(
       padding: EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 25.0),
       height: 80.0,
-      color: backGroundColor2,
+      color: backGroundColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -116,9 +116,8 @@ class _ChatScreenState extends State<ChatScreen> {
           Expanded(
             child: Container(
               height: 33,
-
               decoration: BoxDecoration(
-                color: backGroundColor,
+                color: backGroundColor2,
                 borderRadius: BorderRadius.circular(5.0)
               ),
               child: Column(
@@ -171,7 +170,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       backgroundColor: backGroundColor2,
       appBar: AppBar(
-        backgroundColor: backGroundColor2,
+        backgroundColor: backGroundColor,
         leading: GestureDetector(
           onTap: () => Navigator.pop(context),
           child: Icon(
@@ -204,7 +203,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: backGroundColor,
+                  color: backGroundColor2,
                   borderRadius: BorderRadius.only(
 //                    topRight: Radius.circular(35.0),
 //                    topLeft: Radius.circular(35.0),
